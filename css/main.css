@@ -1,6 +1,33 @@
-#body-game-board {
+body {
   margin: 0;
   padding: 0;
+  /* color: rgb(253, 255, 184); */
+  font-family: "VT323", monospace;
+}
+* {
+  background-repeat: no-repeat;
+}
+/******************** WELCOME PAGE ********************/
+.welcome {
+  padding: 40px;
+  text-align: center;
+  font-size: 3rem;
+  max-width: 740px;
+}
+
+#start-btn {
+  padding: 20px 30px;
+  font-family: "VT323", monospace;
+  font-size: 2rem;
+  width: 400px;
+  background-color: rgb(253, 255, 184);
+  color: rgb(30, 26, 95);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/******************** GAME PAGE ********************/
+#body-game-board {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -11,7 +38,6 @@
   position: relative;
   text-align: start;
   width: auto;
-  font-family: "VT323", monospace;
   color: rgb(253, 255, 184);
   font-size: 50px;
   background-color: rgb(30, 26, 95);
@@ -24,7 +50,7 @@
 }
 
 #game-board {
-  background-color: rgb(206, 185, 250);
+  background-color: rgb(237, 255, 234);
   position: relative;
   height: 500px;
   width: 700px;
@@ -33,8 +59,9 @@
 
 #score-board {
   position: relative;
+  width: 150px;
   font-family: "VT323", monospace;
-  color: white;
+  color: rgb(254, 255, 234);
   line-height: 30px;
   font-size: 18px;
   height: 479px;
@@ -44,24 +71,15 @@
 }
 
 #total-score {
-  border-bottom: white 2px double;
+  border-bottom: rgb(253, 255, 184) 2px double;
 }
 
 #player0 {
   /* background-color: rgb(107, 99, 215); */
-  background-image: url("../images/plate.png");
+  background-image: url("../images/player.png");
   position: absolute;
   /* left: 50%; */
 }
-
-/* #total-score {
-  font-family: "Courier New", Courier, monospace;
-  color: white;
-  background-color: rgb(32, 30, 100);
-  position: absolute;
-  top: -18px;
-  width: 700px;
-} */
 
 .vegetables {
   /* background-color: green; */
@@ -82,7 +100,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: white;
+  background-color: rgb(253, 255, 184);
 }
 
 #gameover-page {
@@ -90,7 +108,8 @@
   align-items: center;
 }
 
-#game-over, #play-again {
+#game-over,
+#play-again {
   font-family: "VT323", monospace;
   font-size: 100px;
   color: rgb(30, 26, 95);
@@ -98,4 +117,311 @@
 
 #play-again {
   font-size: 50px;
+}
+
+/******************** FOR RANDOM IMAGE ID'S ********************/
+#vegetable1 {
+  background-image: url("../images/img_plant-based-products/vegetable1.png");
+}
+#vegetable2 {
+  background-image: url("../images/img_plant-based-products/vegetable2.png");
+}
+#vegetable3 {
+  background-image: url("../images/img_plant-based-products/vegetable3.png");
+}
+#vegetable4 {
+  background-image: url("../images/img_plant-based-products/vegetable4.png");
+}
+#vegetable5 {
+  background-image: url("../images/img_plant-based-products/vegetable5.png");
+}
+#vegetable6 {
+  background-image: url("../images/img_plant-based-products/vegetable6.png");
+}
+#vegetable7 {
+  background-image: url("../images/img_plant-based-products/vegetable7.png");
+}
+#vegetable8 {
+  background-image: url("../images/img_plant-based-products/vegetable8.png");
+}
+#vegetable9 {
+  background-image: url("../images/img_plant-based-products/vegetable0.png");
+}
+
+#fruit0 {
+  background-image: url("../images/img_plant-based-products/fruit0.png");
+}
+#fruit1 {
+  background-image: url("../images/img_plant-based-products/fruit1.png");
+}
+#fruit2 {
+  background-image: url("../images/img_plant-based-products/fruit2.png");
+}
+#fruit3 {
+  background-image: url("../images/img_plant-based-products/fruit3.png");
+}
+#fruit4 {
+  background-image: url("../images/img_plant-based-products/fruit4.png");
+}
+#fruit5 {
+  background-image: url("../images/img_plant-based-products/fruit5.png");
+}
+#fruit6 {
+  background-image: url("../images/img_plant-based-products/fruit6.png");
+}
+#fruit7 {
+  background-image: url("../images/img_plant-based-products/fruit7.png");
+}
+#fruit8 {
+  background-image: url("../images/img_plant-based-products/fruit8.png");
+}
+#fruit9 {
+  background-image: url("../images/img_plant-based-products/fruit9.png");
+}
+
+#legume0 {
+  background-image: url("../images/img_plant-based-products/legume0.png");
+}
+#legume1 {
+  background-image: url("../images/img_plant-based-products/legume1.png");
+}
+#legume2 {
+  background-image: url("../images/img_plant-based-products/legume2.png");
+}
+#legume3 {
+  background-image: url("../images/img_plant-based-products/legume3.png");
+}
+#legume4 {
+  background-image: url("../images/img_plant-based-products/legume4.png");
+}
+#legume5 {
+  background-image: url("../images/img_plant-based-products/legume5.png");
+}
+#legume6 {
+  background-image: url("../images/img_plant-based-products/legume6.png");
+}
+#legume7 {
+  background-image: url("../images/img_plant-based-products/legume7.png");
+}
+#legume8 {
+  background-image: url("../images/img_plant-based-products/legume8.png");
+}
+#legume9 {
+  background-image: url("../images/img_plant-based-products/legume9.png");
+}
+
+#grain0 {
+  background-image: url("../images/img_plant-based-products/grain0.png");
+}
+#grain1 {
+  background-image: url("../images/img_plant-based-products/grain1.png");
+}
+#grain2 {
+  background-image: url("../images/img_plant-based-products/grain2.png");
+}
+#grain3 {
+  background-image: url("../images/img_plant-based-products/grain3.png");
+}
+#grain4 {
+  background-image: url("../images/img_plant-based-products/grain4.png");
+}
+#grain5 {
+  background-image: url("../images/img_plant-based-products/grain5.png");
+}
+#grain6 {
+  background-image: url("../images/img_plant-based-products/grain6.png");
+}
+#grain7 {
+  background-image: url("../images/img_plant-based-products/grain7.png");
+}
+#grain8 {
+  background-image: url("../images/img_plant-based-products/grain8.png");
+}
+#grain9 {
+  background-image: url("../images/img_plant-based-products/grain9.png");
+}
+
+#nut0 {
+  background-image: url("../images/img_plant-based-products/nut0.png");
+}
+#nut1 {
+  background-image: url("../images/img_plant-based-products/nut1.png");
+}
+#nut2 {
+  background-image: url("../images/img_plant-based-products/nut2.png");
+}
+#nut3 {
+  background-image: url("../images/img_plant-based-products/nut3.png");
+}
+#nut4 {
+  background-image: url("../images/img_plant-based-products/nut4.png");
+}
+#nut5 {
+  background-image: url("../images/img_plant-based-products/nut5.png");
+}
+#nut6 {
+  background-image: url("../images/img_plant-based-products/nut6.png");
+}
+#nut7 {
+  background-image: url("../images/img_plant-based-products/nut7.png");
+}
+#nut8 {
+  background-image: url("../images/img_plant-based-products/nut8.png");
+}
+#nut9 {
+  background-image: url("../images/img_plant-based-products/nut9.png");
+}
+
+#chicken0 {
+  background-image: url("../images/img_animal-products/chicken0.png");
+}
+#chicken1 {
+  background-image: url("../images/img_animal-products/chicken1.png");
+}
+#chicken2 {
+  background-image: url("../images/img_animal-products/chicken2.png");
+}
+#chicken3 {
+  background-image: url("../images/img_animal-products/chicken3.png");
+}
+#chicken4 {
+  background-image: url("../images/img_animal-products/chicken4.png");
+}
+
+#redmeat0 {
+  background-image: url("../images/img_animal-products/redmeat0.png");
+}
+#redmeat1 {
+  background-image: url("../images/img_animal-products/redmeat1.png");
+}
+#redmeat2 {
+  background-image: url("../images/img_animal-products/redmeat2.png");
+}
+#redmeat3 {
+  background-image: url("../images/img_animal-products/redmeat3.png");
+}
+#redmeat4 {
+  background-image: url("../images/img_animal-products/redmeat4.png");
+}
+
+#cheese0 {
+  background-image: url("../images/img_animal-products/cheese0.png");
+}
+#cheese1 {
+  background-image: url("../images/img_animal-products/cheese1.png");
+}
+#cheese2 {
+  background-image: url("../images/img_animal-products/cheese2.png");
+}
+#cheese3 {
+  background-image: url("../images/img_animal-products/cheese3.png");
+}
+#cheese4 {
+  background-image: url("../images/img_animal-products/cheese4.png");
+}
+
+#egg0 {
+  background-image: url("../images/img_animal-products/egg0.png");
+}
+#egg1 {
+  background-image: url("../images/img_animal-products/egg1.png");
+}
+#egg2 {
+  background-image: url("../images/img_animal-products/egg2.png");
+}
+#egg3 {
+  background-image: url("../images/img_animal-products/egg3.png");
+}
+#egg4 {
+  background-image: url("../images/img_animal-products/egg4.png");
+}
+#fastfood0 {
+  background-image: url("../images/img_animal-products/fastfood0.png");
+}
+#fastfood1 {
+  background-image: url("../images/img_animal-products/fastfood1.png");
+}
+#fastfood2 {
+  background-image: url("../images/img_animal-products/fastfood2.png");
+}
+#fastfood3 {
+  background-image: url("../images/img_animal-products/fastfood3.png");
+}
+#fastfood4 {
+  background-image: url("../images/img_animal-products/fastfood4.png");
+}
+#cake0 {
+  background-image: url("../images/img_animal-products/cake0.png");
+}
+#cake1 {
+  background-image: url("../images/img_animal-products/cake1.png");
+}
+#cake2 {
+  background-image: url("../images/img_animal-products/cake2.png");
+}
+#cake3 {
+  background-image: url("../images/img_animal-products/cake3.png");
+}
+#cake4 {
+  background-image: url("../images/img_animal-products/cake4.png");
+}
+#fish0 {
+  background-image: url("../images/img_animal-products/fish0.png");
+}
+#fish1 {
+  background-image: url("../images/img_animal-products/fish1.png");
+}
+#fish2 {
+  background-image: url("../images/img_animal-products/fish2.png");
+}
+#fish3 {
+  background-image: url("../images/img_animal-products/fish3.png");
+}
+#fish4 {
+  background-image: url("../images/img_animal-products/fish4.png");
+}
+#candy0 {
+  background-image: url("../images/img_animal-products/candy0.png");
+}
+#candy1 {
+  background-image: url("../images/img_animal-products/candy1.png");
+}
+#candy2 {
+  background-image: url("../images/img_animal-products/candy2.png");
+}
+#candy3 {
+  background-image: url("../images/img_animal-products/candy3.png");
+}
+#candy4 {
+  background-image: url("../images/img_animal-products/candy4.png");
+}
+#icecream0 {
+  background-image: url("../images/img_animal-products/icecream0.png");
+}
+#icecream1 {
+  background-image: url("../images/img_animal-products/icecream1.png");
+}
+#icecream2 {
+  background-image: url("../images/img_animal-products/icecream2.png");
+}
+#icecream3 {
+  background-image: url("../images/img_animal-products/icecream3.png");
+}
+#icecream4 {
+  background-image: url("../images/img_animal-products/icecream4.png");
+}
+#drink0 {
+  background-image: url("../images/img_animal-products/drink0.png");
+}
+#drink1 {
+  background-image: url("../images/img_animal-products/drink1.png");
+}
+#drink2 {
+  background-image: url("../images/img_animal-products/drink2.png");
+}
+#drink3 {
+  background-image: url("../images/img_animal-products/drink3.png");
+}
+#drink4 {
+  background-image: url("../images/img_animal-products/drink4.png");
 }
