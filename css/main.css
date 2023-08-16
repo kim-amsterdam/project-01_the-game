@@ -49,7 +49,7 @@
 
 #player0 {
   /* background-color: rgb(107, 99, 215); */
-  background-image: url("./images/plate.png");
+  background-image: url("../images/plate.png");
   position: absolute;
   /* left: 50%; */
 }
