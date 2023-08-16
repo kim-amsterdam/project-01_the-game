@@ -87,9 +87,9 @@ class Vegetables {
   }
   getRandomBackgroundImage() {
     this.imgArr = [
-      "/images/broccoli.png",
-      "/images/tomato.png",
-      "/images/beans.png",
+      "./images/broccoli.png",
+      "./images/tomato.png",
+      "./images/beans.png",
     ];
     this.randomImageIndex =
       this.imgArr[Math.floor(Math.random() * this.imgArr.length)];
@@ -257,7 +257,7 @@ function createAnimalInterval() {
         player.positionY + player.height > animalAppear.positionY
       ) {
         console.log("Game over!");
-        location.href = "./gameover.html";
+        // location.href = "./gameover.html";
         /******************** REMOVE ANIMAL FROM DOM ********************/
       }
       if (animalAppear.positionY >= 480) {
