@@ -11,6 +11,7 @@ body {
 .welcome {
   padding: 40px;
   text-align: center;
+  color: rgb(253, 255, 184);
   font-size: 3rem;
   max-width: 740px;
 }
@@ -95,28 +96,36 @@ body {
 
 /******************** GAME OVER PAGE ********************/
 #body-game-over {
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: rgb(253, 255, 184);
+  /* min-height: 100px; */
+  background-color: rgb(30, 26, 95);
 }
 
 #gameover-page {
   display: flex;
+  flex-direction: column;
+  padding: 40px;
   align-items: center;
+}
+
+img {
+  width: 400px;
 }
 
 #game-over,
 #play-again {
   font-family: "VT323", monospace;
-  font-size: 100px;
-  color: rgb(30, 26, 95);
+  font-size: 50px;;
+  color: rgb(253, 255, 184);
 }
 
 #play-again {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 /******************** FOR RANDOM IMAGE ID'S ********************/

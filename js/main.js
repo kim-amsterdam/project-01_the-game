@@ -402,7 +402,7 @@ function createAnimalInterval() {
         player.positionY + player.height > animalAppear.positionY
       ) {
         console.log("Game over!");
-        // location.href = "./gameover.html";
+        location.href = "./gameover.html";
         /******************** REMOVE ANIMAL FROM DOM ********************/
       }
       if (animalAppear.positionY >= 470) {
