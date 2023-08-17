@@ -78,12 +78,12 @@ class Game {
     const lifeDiv = document.createElement("div");
     this.lifeDiv = lifeDiv;
     this.lifeDiv.id = "lifes";
-    this.lifeDiv.style.backgroundImage = `url("../images/life${this.lifesLeft}.png")`;
+    this.lifeDiv.style.backgroundImage = `url("./images/life${this.lifesLeft}.png")`;
     const parentOfLifes = document.getElementById("score-board");
     parentOfLifes.appendChild(lifeDiv);
   }
   lifesUpdate() {
-    this.lifeDiv.style.backgroundImage = `url("../images/life${this.lifesLeft}.png")`;
+    this.lifeDiv.style.backgroundImage = `url("./images/life${this.lifesLeft}.png")`;
   }
   energyLevel() {
     this.energyIntervalId = setInterval(() => {
