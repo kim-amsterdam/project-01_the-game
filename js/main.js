@@ -88,7 +88,7 @@ class Game {
   energyLevel() {
     this.energyIntervalId = setInterval(() => {
       if (this.energy > 0) {
-        this.energy--;
+        this.energy -= 0.1;
         this.energyInsideDiv.style.width = this.energy + "%";
       }
       if (this.energy <= 100 && this.energy >= 51) {
@@ -100,15 +100,15 @@ class Game {
       if (this.energy <= 24 && this.energy >= 0) {
         this.energyInsideDiv.style.backgroundColor = "rgb(224, 59, 59)";
       }
-      if (this.energy === 0) {
+      if (this.energy < 1) {
         this.lifesLeft--;
         this.lifesUpdate();
         clearInterval(this.energyIntervalId);
         this.energy = 98;
-        // this.energyLevel();
+        this.energyLevel();
       }
       console.log(this.energy);
-    }, 700);
+    }, 50);
   }
   energyDiv() {
     const energyOutsideDiv = document.createElement("div");
