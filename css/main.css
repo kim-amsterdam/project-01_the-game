@@ -1,13 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  /* color: rgb(253, 255, 184); */
   font-family: "VT323", monospace;
 }
 * {
   background-repeat: no-repeat;
   background-position: center;
 }
+
 /******************** WELCOME PAGE ********************/
 .welcome {
   padding: 40px;
@@ -42,7 +42,7 @@ body {
   text-align: center;
   max-width: 850px;
   color: rgb(253, 255, 184);
-  font-size: 42px;
+  font-size: 2.8rem;
   background-color: rgb(30, 26, 95);
   padding-left: 95px;
 }
@@ -66,7 +66,7 @@ body {
   font-family: "VT323", monospace;
   color: rgb(254, 255, 234);
   line-height: 30px;
-  font-size: 18px;
+  font-size: 1.2rem;
   height: 479px;
   padding: 20px;
   background-color: rgb(30, 26, 95);
@@ -96,7 +96,7 @@ body {
 
 #total-score {
   border-bottom: rgb(253, 255, 184) 2px double;
-  font-size: 24px;
+  font-size: 1.4rem;
 }
 
 #player0 {
@@ -116,8 +116,6 @@ body {
 #body-game-over {
   display: flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
   justify-content: center;
   align-items: center;
   background-color: rgb(30, 26, 95);
@@ -137,10 +135,10 @@ body {
 #game-over,
 #play-again {
   font-family: "VT323", monospace;
-  font-size: 50px;;
+  font-size: 2.5rem;
   color: rgb(253, 255, 184);
 }
 
 #play-again {
-  font-size: 30px;
+  font-size: 2.5rem;
 }

@@ -2,6 +2,8 @@ class Game {
   constructor() {
     this.height = 40;
     this.width = 700;
+
+    // score board:
     this.totalScore = 0;
     this.vegetableScore = 0;
     this.fruitScore = 0;
@@ -9,14 +11,13 @@ class Game {
     this.grainScore = 0;
     this.nutScore = 0;
 
-    // energy counter
+    // energy & life counter:
     this.energy = 98;
-
-    // life counter
     this.lifesLeft = 3;
     this.lifesCounter = 10;
     this.lifes();
 
+    // bonus counter:
     this.bonusCounter = 1;
     this.bonusStart = false;
     this.intervalIdBonusToggle = null;
@@ -25,14 +26,14 @@ class Game {
     this.intervalIdBonusVegetable;
     this.bonusVegetableRainIsStopped = false;
 
-    // For the speed increase:
+    // for the speed increase:
     this.intervalDecrease = 15;
     this.speedSteps = 5;
 
     this.addPoints();
     this.energyDiv();
-    // this.energyLevel();
   }
+
   addPoints() {
     document.getElementById(
       "total-score"
@@ -59,21 +60,16 @@ class Game {
       "nut-score"
     ).innerHTML = `NUTS AND SEEDS: ${this.nutScore}`;
 
-    // console.log("This is the totalscore: "  + this.totalScore)
-    // console.log("This is the lifesCounter: "  + this.lifesCounter)
-    // console.log("This is the lifesLeft: "  + this.lifesLeft)
-
     if (this.totalScore === this.lifesCounter && this.lifesLeft <= 2) {
       this.lifesLeft++;
       this.lifesCounter += 5;
       this.lifesUpdate();
-      // console.log("NEW LIFE!");
     }
 
     this.increaseSpeed();
     this.checkForBonus();
-    // this.energyLevel()
   }
+
   lifes() {
     const lifeDiv = document.createElement("div");
     this.lifeDiv = lifeDiv;
@@ -82,9 +78,14 @@ class Game {
     const parentOfLifes = document.getElementById("score-board");
     parentOfLifes.appendChild(lifeDiv);
   }
+
   lifesUpdate() {
     this.lifeDiv.style.backgroundImage = `url("./images/life${this.lifesLeft}.png")`;
+    if (this.lifesLeft <= 0 && this.energy < 1) {
+      location.href = "./gameover.html";
+    }
   }
+
   energyLevel() {
     this.energyIntervalId = setInterval(() => {
       if (this.energy > 0) {
@@ -107,9 +108,16 @@ class Game {
         this.energy = 98;
         this.energyLevel();
       }
-      console.log(this.energy);
     }, 50);
   }
+
+  checkEnergyLevel() {
+    this.energyInsideDiv.style.width = this.energy + "%";
+    if (this.energy < 1 && this.lifesLeft <= 0) {
+      location.href = "./gameover.html";
+    }
+  }
+
   energyDiv() {
     const energyOutsideDiv = document.createElement("div");
     this.energyOutsideDiv = energyOutsideDiv;
@@ -140,13 +148,12 @@ class Game {
     ) {
       this.bonusStart = true;
       if (this.bonusStart) {
-        // console.log(`BONUS TIME!`);
         this.toggleColorBonus();
         this.bonusCounter *= 3;
-        // console.log(this.bonusCounter + "check bonuscounter");
       }
     }
   }
+
   toggleColorBonus() {
     this.toggleCount = 0;
     this.totalToggles = 15;
@@ -157,45 +164,30 @@ class Game {
       if (this.bonusFlashPoints.style.color === "rgb(253, 255, 184)") {
         this.bonusFlashPoints.style.color = "rgb(89, 255, 0)";
         this.bonusFlashTitle.style.color = "rgb(89, 255, 0)";
-        //this.bonusFlashPoints.style.color === "rgb(253, 255, 184)"
       } else {
         this.bonusFlashPoints.style.color = "rgb(253, 255, 184)";
         this.bonusFlashTitle.style.color = "rgb(253, 255, 184)";
         this.bonusFlashTitle.innerHTML = "VEGETABLE RAIN!!!";
       }
-      // createVegetableInterval();
       document.getElementById("total-score").innerHTML = `BONUS TIME! +++`;
       if (this.toggleCount >= this.totalToggles) {
         this.bonusFlashPoints.style.color = "rgb(253, 255, 184)";
         this.bonusFlashTitle.style.color = "rgb(253, 255, 184)";
         this.bonusFlashTitle.innerHTML = "PLANT-BASED WHOLE-FOOD SHOPPING GAME";
         clearInterval(this.intervalIdBonusToggle);
-        // clearInterval(invervalIdVegetable);
         return;
       }
     }, 200);
   }
+
   increaseSpeed() {
-    // console.log("Before the if: The current score is at: " + this.totalScore);
-    // console.log(
-    //   "Before the if: The current speed is at: " + this.intervalDecrease
-    // );
-    // console.log(
-    //   "Before the if: The current speedstep is at: " + this.speedSteps
-    // );
     if (this.totalScore === this.speedSteps) {
       this.intervalDecrease -= 2;
       this.speedSteps += 10;
       restartInterval();
-      // console.log("After the if: The current score is at: " + this.totalScore);
-      // console.log(
-      //   "After the if: The current speed is at: " + this.intervalDecrease
-      // );
-      // console.log(
-      //   "After the if: The current speedstep is at: " + this.speedSteps
-      // );
     }
   }
+
   createBonusVegetableInterval() {
     const vegetableBonusArr = [];
 
@@ -236,7 +228,6 @@ class Game {
   }
 }
 
-/******************** PLAYER CLASS ********************/
 class Player {
   constructor() {
     this.height = 50; //was 20
@@ -283,7 +274,7 @@ class Player {
     this.playerDiv.style.top = this.positionY + "px";
   }
 }
-/******************** Vegetable CLASS ********************/
+
 class Vegetables {
   constructor() {
     this.height = 32;
@@ -304,7 +295,6 @@ class Vegetables {
   }
 
   createDomElement() {
-    /******************** CREATING THE vegetable DIV & ADD IT TO THE DOM ********************/
     const vegetableDiv = document.createElement("div");
     this.vegetableDiv = vegetableDiv;
     this.vegetableDiv.className = "vegetables";
@@ -317,7 +307,7 @@ class Vegetables {
     this.vegetableDiv.style.width = this.width + "px";
     this.vegetableDiv.style.left = this.positionX + "px";
 
-    this.updatePosition(); // calling current position
+    this.updatePosition();
   }
 
   updateVegetableScore() {
@@ -343,11 +333,10 @@ class Vegetables {
     this.updatePosition();
   }
   updatePosition() {
-    this.vegetableDiv.style.top = this.positionY + "px"; // re-positioning vegetableDiv
+    this.vegetableDiv.style.top = this.positionY + "px";
   }
 }
 
-/******************** ANIMAL CLASS ********************/
 class Animal {
   constructor() {
     this.height = 32;
@@ -377,7 +366,6 @@ class Animal {
     this.typeOfProduct = this.randomProductGroup + this.randomProductIndex;
   }
   createDomElement() {
-    /******************** CREATING THE vegetable DIV & ADD IT TO THE DOM ********************/
     const animalDiv = document.createElement("div");
     this.animalDiv = animalDiv;
     this.animalDiv.className = "animals";
@@ -386,12 +374,11 @@ class Animal {
     const parentOfAnimals = document.getElementById("game-board");
     parentOfAnimals.appendChild(animalDiv);
 
-    /******************** GIVING animalDiv A SIZE ********************/
     this.animalDiv.style.height = this.height + "px";
     this.animalDiv.style.width = this.width + "px";
     this.animalDiv.style.left = this.positionX + "px";
 
-    this.updatePosition(); // calling the current position
+    this.updatePosition();
   }
   moveDown() {
     this.positionY += 1;
@@ -403,11 +390,11 @@ class Animal {
   }
 }
 
-/******************** STORING THE CLASS IN A VALUABLE WHICH INVOKES IT AUTOMATICALLY ********************/
+// invoking classes:
 const game = new Game();
 const player = new Player();
 
-/******************** DETECTING PLAYER KEY & INVOKING LEFT/RIGHT ********************/
+// detecting player and invoke arrow key movement:
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") {
     if (player.positionX > 0) {
@@ -428,55 +415,49 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/******************** VEGGIES ********************/
-const vegetableArr = []; // making empty array to catch all the new vegetables
-
+// vegetables products movement:
+const vegetableArr = [];
 setInterval(() => {
-  const newVegetable = new Vegetables(); // making a new const inside this interval for the new vegetables to automaticalle make new vegetable from the class.
-  vegetableArr.push(newVegetable); // push the vegetable div's the the empty array
+  const newVegetable = new Vegetables();
+  vegetableArr.push(newVegetable);
 }, 1200);
 
-/******************** MOVE vegetable DOWN ********************/
 let invervalIdVegetable = createVegetableInterval();
 
 function createVegetableInterval() {
   return setInterval(() => {
     vegetableArr.forEach(function (vegetableAppear, index) {
-      // vegetableAppear = the current vegetable (like vegetableArr[0], vegetableArr[1] etc.), possible to add "", index" in case of splicing, but because they all have the same speed it will always be the first one to cut off the string so shift() works too.
       vegetableAppear.moveDown();
-      /******************** COLLISION DETECTION ********************/
+      // collision detection:
       if (
         player.positionX < vegetableAppear.positionX + vegetableAppear.width &&
         player.positionX + player.width > vegetableAppear.positionX &&
         player.positionY < vegetableAppear.positionY + vegetableAppear.height &&
         player.positionY + player.height > vegetableAppear.positionY
       ) {
+        // remove vegetables from the DOM after collision:
         vegetableArr.splice(index, 1);
         vegetableAppear.vegetableDiv.remove();
         vegetableAppear.updateVegetableScore();
-        // game.vegetablesScore();
-        game.addPoints(); //EXTRA add name of the vegetable as argument to check how many points to win
+        game.addPoints();
         if (game.energy < 93) {
           game.energy += 5;
-          //  console.log(game.energy);
         }
-        /******************** REMOVE vegetable FROM DOM ********************/
       }
+      // remove vegetables from the DOM at the end of game-board:
       if (vegetableAppear.positionY > 450) {
-        // to access the positionY inside the class there's no need for "this."" because it already is looping through the specific class div.
-        vegetableArr.splice(index, 1); // splice in case I want to try different speeds for the vegetables.
-        vegetableAppear.vegetableDiv.remove(); // addressing the current vegetable class (vegetableAppear), access the DOM element I stored as "vegetableDiv" and remove this one.
+        vegetableArr.splice(index, 1);
+        vegetableAppear.vegetableDiv.remove();
       }
     });
   }, game.intervalDecrease);
 }
 
-/******************** ANIMALS ********************/
-const animalArr = []; // making empty array to catch all the new ANIMALS
-
+// animal products movement:
+const animalArr = [];
 const intervalIdAnimalAppear = setInterval(() => {
-  const newAnimal = new Animal(); // making a new const inside this interval for the new animals to automaticalle make new vegetable from the class.
-  animalArr.push(newAnimal); // push the vegetable div's the the empty array
+  const newAnimal = new Animal();
+  animalArr.push(newAnimal);
 }, 1000);
 
 let intervalIdAnimal = createAnimalInterval();
@@ -486,33 +467,37 @@ function createAnimalInterval() {
     animalArr.forEach(function (animalAppear, index) {
       animalAppear.moveDown();
 
-      /******************** COLLISION DETECTION ********************/
+      // collision detection:
       if (
         player.positionX < animalAppear.positionX + animalAppear.width &&
         player.positionX + player.width > animalAppear.positionX &&
         player.positionY < animalAppear.positionY + animalAppear.height &&
         player.positionY + player.height > animalAppear.positionY
       ) {
-        // console.log("Game over!");
-        /******************** REMOVE ANIMAL FROM DOM ********************/
+        // remove animal from the DOM after collision:
         animalArr.splice(index, 1);
         animalAppear.animalDiv.remove();
-        if (game.energy <= 49) {
-          game.lifesLeft--;
-          game.energy = 98;
-          console.log("current life: " + game.lifesLeft);
-          console.log("Here the game got - game.energy: " + game.energy);
-          // console.log("Lifes left: " + game.lifesLeft);
-          game.lifesUpdate();
-        } else if (game.energy >= 50) {
-          game.energy -= 50;
-          console.log("Here the game got - 50: " + game.energy);
-          console.log("current life: " + game.lifesLeft);
+
+        // reduce energy & lifes / or game-over / after collision:
+        if (game.energy <= 51) {
+          if (game.lifesLeft >= 0) {
+            game.lifesLeft--;
+            game.energy = 98;
+          } else {
+            location.href = "./gameover.html";
+          }
         }
-        if (game.lifesLeft === 0) {
-          location.href = "./gameover.html";
+        if (game.energy > 51) {
+          if (game.lifesLeft >= 0) {
+            game.energy -= 50;
+          } else {
+            location.href = "./gameover.html";
+          }
         }
+        game.lifesUpdate();
+        game.checkEnergyLevel() 
       }
+      // remove animal from the DOM at the end of game-board:
       if (animalAppear.positionY >= 450) {
         animalArr.splice(index, 1);
         animalAppear.animalDiv.remove();
@@ -520,7 +505,7 @@ function createAnimalInterval() {
     });
   }, game.intervalDecrease);
 }
-
+// restart interval for speed-increasement
 function restartInterval() {
   clearInterval(intervalIdAnimal);
   intervalIdAnimal = createAnimalInterval();
