@@ -309,7 +309,7 @@ class Vegetables {
     this.vegetableDiv = vegetableDiv;
     this.vegetableDiv.className = "vegetables";
     this.vegetableDiv.id = this.typeOfProduct;
-    this.vegetableDiv.style.backgroundImage = `url("../images/img_plant-based-products/${this.typeOfProduct}.png")`;
+    this.vegetableDiv.style.backgroundImage = `url("./images/img_plant-based-products/${this.typeOfProduct}.png")`;
     const parentOfvegetables = document.getElementById("game-board");
     parentOfvegetables.appendChild(vegetableDiv);
 
@@ -382,7 +382,7 @@ class Animal {
     this.animalDiv = animalDiv;
     this.animalDiv.className = "animals";
     this.animalDiv.id = this.typeOfProduct;
-    this.animalDiv.style.backgroundImage = `url("../images/img_animal-products/${this.typeOfProduct}.png")`;
+    this.animalDiv.style.backgroundImage = `url("./images/img_animal-products/${this.typeOfProduct}.png")`;
     const parentOfAnimals = document.getElementById("game-board");
     parentOfAnimals.appendChild(animalDiv);
 
